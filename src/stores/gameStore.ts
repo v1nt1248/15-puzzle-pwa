@@ -9,11 +9,6 @@ export const useGameStore = defineStore('game', () => {
   const boardSize = ref<number>(Number(localStorage.getItem('15_puzzle_size')) || 4)
   const gameHistory = ref<GameRecord[]>([])
 
-  console.log('defaultPlayerName: ', defaultPlayerName.value)
-  console.log('currentLang: ', currentLang.value)
-  console.log('boardSize: ', boardSize.value)
-  console.log('gameHistory: ', gameHistory.value)
-
   const availableLanguages = ref([
     { code: 'en', label: 'EN' },
     { code: 'pl', label: 'PL' },
@@ -65,7 +60,6 @@ export const useGameStore = defineStore('game', () => {
 
   function changeBoardSize(size: number) {
     boardSize.value = size
-    console.log('changeBoardSize: ', boardSize.value)
     localStorage.setItem('15_puzzle_size', size.toString())
   }
 
