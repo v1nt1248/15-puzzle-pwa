@@ -23,10 +23,25 @@ export default defineConfig({
         name: 'Numpuz Premium Challenge',
         short_name: 'Numpuz',
         description: 'Logical puzzle',
+
+        id: '/',
+
+        categories: ['games', 'utilities'],
+
         theme_color: '#3498db',
         background_color: '#f8f9fa',
         display: 'standalone',
         orientation: 'portrait',
+
+        screenshots: [
+          {
+            src: 'screenshot.png',
+            sizes: '365x763',
+            type: 'image/png',
+            form_factor: 'narrow',
+            label: 'Numpuz Gameplay',
+          },
+        ],
 
         icons: [
           {

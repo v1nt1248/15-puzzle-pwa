@@ -10,6 +10,8 @@ const emits = defineEmits<{
   (e: 'replay', board: TileValue[]): void
 }>()
 
+const appVersion = '0.0.5'
+
 const sizes: number[] = [3, 4, 5, 6]
 
 const store = useGameStore()
@@ -107,6 +109,8 @@ const { changeDefaultName, changeLang, changeBoardSize, formatTime } = store
         </div>
       </template>
     </div>
+
+    <div class="app-version">v {{ appVersion }}</div>
   </div>
 </template>
 
@@ -312,5 +316,14 @@ const { changeDefaultName, changeLang, changeBoardSize, formatTime } = store
   font-size: 12px;
   color: var(--color-text-muted);
   pointer-events: none;
+}
+
+.app-version {
+  margin-top: 20px;
+  font-size: 13px;
+  color: var(--color-text-muted);
+  opacity: 0.6;
+  letter-spacing: 0.5px;
+  font-weight: 500;
 }
 </style>
