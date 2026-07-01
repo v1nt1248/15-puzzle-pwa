@@ -5,15 +5,18 @@ import vueDevTools from 'vite-plugin-vue-devtools'
 import { VitePWA } from 'vite-plugin-pwa'
 
 export default defineConfig({
+  base: '/',
   plugins: [
     vue(),
     vueDevTools(),
     VitePWA({
       registerType: 'autoUpdate',
+      injectRegister: 'inline',
 
       workbox: {
-        globPatterns: ['**/*.{js,css,html,ico,png,svg,woff2}'],
+        globPatterns: ['**/*.{js,css,html,ico,png,svg,woff2,webmanifest}'],
         navigateFallback: 'index.html',
+        cleanupOutdatedCaches: true,
       },
 
       manifest: {
