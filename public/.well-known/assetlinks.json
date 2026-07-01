@@ -1,0 +1,8 @@
+[{
+      "relation": ["delegate_permission/common.handle_all_urls"],
+      "target": {
+        "namespace": "android_app",
+        "package_name": "app.vercel.app_15_puzzle_pwa.twa",
+        "sha256_cert_fingerprints": ["E9:99:2E:E6:3E:2D:41:E2:14:4B:42:9B:C6:2E:5D:A8:8F:DA:34:1A:7C:25:B6:EF:B6:82:5D:9A:8F:89:8D:15"]
+      }
+    }]

@@ -10,7 +10,7 @@ const emits = defineEmits<{
   (e: 'replay', board: TileValue[]): void
 }>()
 
-const appVersion = '0.0.5'
+const appVersion = '0.0.6'
 
 const sizes: number[] = [3, 4, 5, 6]
 
