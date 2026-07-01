@@ -1,8 +1,8 @@
-import {fileURLToPath, URL} from 'node:url'
-import {defineConfig} from 'vite'
+import { fileURLToPath, URL } from 'node:url'
+import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import vueDevTools from 'vite-plugin-vue-devtools'
-import {VitePWA} from 'vite-plugin-pwa'
+import { VitePWA } from 'vite-plugin-pwa'
 
 export default defineConfig({
   plugins: [
@@ -13,6 +13,7 @@ export default defineConfig({
 
       workbox: {
         globPatterns: ['**/*.{js,css,html,ico,png,svg,woff2}'],
+        navigateFallback: 'index.html',
       },
 
       manifest: {
