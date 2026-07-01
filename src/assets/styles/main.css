@@ -1,0 +1,42 @@
+:root {
+  --bg-main: #f8f9fa;
+  --bg-surface: #ffffff;
+
+  --color-text-dark: #2c3e50;
+  --color-text-muted: #7f8c8d;
+
+  --board-bg: #34495e;
+  --tile-bg: #3498db;
+  --tile-text: #ffffff;
+
+  --btn-success: #2ecc71;
+  --btn-primary: #3498db;
+  --btn-secondary: #7f8c8d;
+  --btn-warning: #f39c12;
+
+  --border-color: #bdc3c7;
+  --shadow-main: rgba(0, 0, 0, 0.05);
+  --shadow-board: rgba(0, 0, 0, 0.2);
+}
+
+[data-theme="dark"] {
+  --bg-main: #1a202c;
+  --bg-surface: #2d3748;
+
+  --color-text-dark: #f7fafc;
+  --color-text-muted: #a0aec0;
+
+  --board-bg: #1a202c;
+  --tile-bg: #4a5568;
+  --tile-text: #ffffff;
+
+  --border-color: #4a5568;
+  --shadow-main: rgba(0, 0, 0, 0.3);
+  --shadow-board: rgba(0, 0, 0, 0.5);
+}
+
+#app {
+  position: fixed;
+  inset: 0;
+  font-family: system-ui, sans-serif;
+}
