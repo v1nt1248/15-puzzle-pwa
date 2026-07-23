@@ -25,7 +25,10 @@ const initialBoardState = ref<TileValue[]>([])
 let timerInterval: ReturnType<typeof setTimeout> | null = null
 
 function startTimer() {
-  if (timerInterval) return
+  if (timerInterval) {
+    return
+  }
+
   timerInterval = window.setInterval(() => {
     timeElapsed.value++
   }, 1000)
@@ -59,6 +62,7 @@ function shuffleBoard() {
     const validMoves: number[] = []
     const row = Math.floor(emptyIndex / size)
     const col = emptyIndex % size
+
     if (row > 0) {
       validMoves.push(emptyIndex - size)
     }
@@ -112,6 +116,7 @@ function handleReplayGame(specificBoard: TileValue[]) {
   movesCount.value = 0
   timeElapsed.value = 0
   currentScreen.value = 'game'
+
   stopTimer()
   startTimer()
 }
@@ -123,6 +128,7 @@ function moveTile(index: number) {
 
   const size = Number(boardSize.value)
   const emptyIndex = tiles.value.indexOf(null)
+
   const tileRow = Math.floor(index / size)
   const tileCol = index % size
   const emptyRow = Math.floor(emptyIndex / size)
@@ -207,14 +213,14 @@ onUnmounted(() => stopTimer())
       <div
         class="board"
         :class="{ 'not-started': !isStarted }"
-        :style="{ gridTemplateColumns: `repeat(${store.boardSize}, 1fr)` }"
+        :style="{ gridTemplateColumns: `repeat(${boardSize}, 1fr)` }"
       >
         <TransitionGroup name="tile-grid">
           <div
             v-for="(tile, index) in tiles"
             :key="tile ?? 'empty'"
             :class="['tile', { empty: tile === null }]"
-            :style="{ fontSize: boardSize > 4 ? '18px' : '24px' }"
+            :style="{ fontSize: Number(boardSize) > 4 ? '18px' : '24px' }"
             @click="moveTile(index)"
           >
             <span v-if="tile !== null" class="tile-inner">
@@ -252,7 +258,10 @@ onUnmounted(() => stopTimer())
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 20px;
+  padding-top: env(safe-area-inset-top, 20px);
+  padding-bottom: env(safe-area-inset-bottom, 20px);
+  padding-left: env(safe-area-inset-left, 20px);
+  padding-right: env(safe-area-inset-right, 20px);
   min-height: 100vh;
   box-sizing: border-box;
   background-color: var(--bg-main);
@@ -303,6 +312,8 @@ onUnmounted(() => stopTimer())
   gap: 10px;
   width: 100%;
   aspect-ratio: 1;
+  align-items: start;
+  grid-auto-rows: 1fr;
   background-color: var(--board-bg);
   padding: 10px;
   border-radius: 10px;
@@ -321,6 +332,9 @@ onUnmounted(() => stopTimer())
   user-select: none;
   touch-action: manipulation;
   aspect-ratio: 1;
+  min-height: 0;
+  align-self: center;
+  width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
